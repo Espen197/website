@@ -5,6 +5,5 @@ app_name = "stocks"
 
 urlpatterns = [
     path('', views.IndexView.as_view(), name="Index"),
-    path('#', views.PortfolioView.as_view(), name="Portfolio"),
-    path('#', views.StockView.as_view(), name="Stock"),
+    path('<int:portfolio_id>/', views.DetailView.as_view(), name="Detail"),
 ]

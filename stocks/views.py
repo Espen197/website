@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import generic
-from .models import Stock, Portfolio
+from .models import Portfolio
 
 
 class IndexView(generic.ListView):
@@ -10,15 +10,7 @@ class IndexView(generic.ListView):
         return Portfolio.objects.all()
 
 
-class PortfolioView(generic.ListView):
+class DetailView(generic.DetailView):
     model = Portfolio
-    template = "stocks/index.html"  # change later
-
-    def get_queryset(self):
-        return Stock.objects.all()
-
-
-class StockView(generic.DetailView):
-    model = Stock
     template = "stocks/detail.html"
 
